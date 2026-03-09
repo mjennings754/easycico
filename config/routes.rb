@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :organizations do
+    resources :users, only: [:create]
+  end
+
   get "dashboard" => "dashboard#home"
   controller :sessions do
     get "login" => :new
